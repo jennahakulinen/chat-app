@@ -7,6 +7,7 @@ document.querySelector("form").addEventListener("submit", (event) => {
   const inp = document.getElementById("message");
   console.log("emitting:", inp.value);
   socket.emit("chat message", inp.value);
+
   inp.value = "";
 });
 
