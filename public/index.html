@@ -4,11 +4,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <script defer src="https://cdn.socket.io/4.5.0/socket.io.min.js" integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k" crossorigin="anonymous"></script>
+    <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="chat.js"></script>
 </head>
 <body>
-    <form action="">
+    <form id="join"  action="">
+        <input type="text" id="username"> 
+        <button type="submit">Liity</button>
+    </form>  
+    <form id="chat-message-input" action="">
         <input type="text" id="message"> 
         <button type="submit">Lähetä</button>
     </form>
