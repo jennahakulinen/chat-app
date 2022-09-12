@@ -12,19 +12,22 @@
 <div class="chat-window flex flex-col items-center">
     <h1 class="text-3xl font-bold text-center m-5">
         Tervetuloa chattiin!
-      </h1>
+    </h1>
     <form id="join"  action="" >
-        <!-- <input type="text" id="username" class="rounded-lg ring-1 ring-black"> 
-        <button type="submit">Liity</button> -->
+        <input type="text" id="username" class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
+        <button type="submit">Liity</button>
     </form>  
     <form id="chat-message-input" action="">
-        <input type="text" id="message" class="rounded-lg ring-1 ring-black w-80 h-8"> 
-        <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
+        <div class="flex items-center">
+        <input type="text" id="message" placeholder="Kirjoita viestisi tähän" class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
+        <button type="submit" class="p-2 text-mm-jet rounded-full cursor-pointer hover:bg-blue-100">
             <svg class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
         </button>
+    </div>
     </form>   
 </div>
 <ul id="messages"></ul>
+
     
 </body>
 </html>

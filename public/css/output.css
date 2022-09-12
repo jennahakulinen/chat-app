@@ -411,7 +411,7 @@ video {
 }
 
 body {
-  background-image: url("/img/blob-scene-haikei (1).svg")
+  background-image: url("/img/blob-scene-haikei (2).svg")
 }
 
 *, ::before, ::after {
@@ -677,6 +677,10 @@ body {
 .text-blue-600 {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
+}
+
+.text-mm-jet {
+  color: rgba(53, 54, 51, 1);
 }
 
 .ring-1 {
