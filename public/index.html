@@ -8,52 +8,46 @@
     <script defer src="/socket.io/socket.io.js"></script>
     <script defer src="chat.js"></script>
 </head>
-<body>
+<body class="w-full h-full bg-cover bg-no-repeat bg-center">
+    <div class="chat-window flex flex-col items-center">
     <form id="join">
-      <p>Valitse huone:</p>
-      <input type="radio" id="1" name="room" value="1" />
-      <label for="1">Huone 1</label>
-      <input type="radio" id="2" name="room" value="2" />
-      <label for="2">Huone 2</label>
-      <input type="radio" id="3" name="room" value="3" />
-      <label for="3">Huone 3</label>
+        <h1 class="text-3xl font-bold text-center my-5">
+            Welcome to chat!
+        </h1>
+      <p class="text-lg mb-2">Choose room:</p>
+      <input class="mx-2" type="radio" id="1" name="room" value="1" />
+      <label class="text-lg" for="1">Room no.1</label>
+      <input class="mx-2" type="radio" id="2" name="room" value="2" />
+      <label class="text-lg" for="2">Room no.2</label>
+      <input class="mx-2" type="radio" id="3" name="room" value="3" />
+      <label class="text-lg" for="3">Room no.3</label>
       <br />
       <br />
-      <input type="text" id="username" placeholder="käyttäjänimi" />
-      <br />
-      <br />
-      <button type="submit">Liity huoneeseen</button>
-      <br />
-      <br />
-    </form>
-    <button id="leaveBtn">Poistu huoneesta</button>
-    <h1 id="roomNumber"></h1>
-    <form id="msg-input">
-      <input type="text" id="message" placeholder="kirjoita viesti..." />
-      <button type="submit">Lähetä</button>
-    </form>
-    <ul id="messages"></ul>
-  </body>
-<!-- <body class="w-full h-full bg-cover bg-no-repeat bg-center">
-<div class="chat-window flex flex-col items-center">
-    <h1 class="text-3xl font-bold text-center m-5">
-        Tervetuloa chattiin!
-    </h1>
-    <form id="join"  action="" >
-        <input type="text" id="username" placeholder="Valitse käyttäjänimi" class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
-        <button type="submit" class="rounded-lg ring-1 ring-black w-10">Liity!</button>
-    </form>  
-    <form id="chat-message-input" action="">
-        <div class="flex items-center">
-        <input type="text" id="message" placeholder="Kirjoita viestisi tähän" class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
-        <button type="submit" class="p-2 text-mm-jet rounded-full cursor-pointer hover:bg-blue-100">
-            <svg class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
-        </button>
+      <div class="flex flex-col items-center">
+      <input type="text" id="username" placeholder="Nickname" class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
+      <br>
+        <button type="submit" class="rounded-lg ring-1 ring-black w-20 align-middle">Join!</button>
     </div>
-    </form>   
-</div>
-<ul id="messages"></ul>
-
+      <br />
+      <br />
+    </form>
+    <div id="roomDiv" class="flex flex-col items-center m-5">
+        <div >
+            <h1 id="roomNumber" class="text-lg text-center"></h1>
+            <p class="text-lg text-center">Start chatting!</p>  
+            <button class="rounded-lg ring-1 ring-black w-28 m-3 align-middle" id="leaveBtn">Leave room</button>
+        </div>
+        <form id="msg-input">
+            <div class="flex items-center">
+                <input type="text" id="message" placeholder="Write your message..." class="rounded-lg ring-1 ring-black w-80 h-8 p-2"> 
+                <button type="submit" class="p-2 text-mm-jet rounded-full cursor-pointer">
+                    <svg class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                </button>
+            </div>
+        </form>
+    </div>
     
-</body> -->
+    <ul id="messages"></ul>
+</div>
+  </body>
 </html>
