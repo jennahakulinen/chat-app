@@ -3,38 +3,53 @@
 const socket = io("http://localhost:3000");
 // const socket = io("https://stream-server-jennash.norwayeast.cloudapp.azure.com");
 
-document
-  .querySelector("#chat-message-input")
-  .addEventListener("submit", (event) => {
-    event.preventDefault();
-    const inp = document.getElementById("message");
-    console.log("emitting:", inp.value);
-    socket.emit("chat message", inp.value);
-    inp.value = "";
-  });
-document.querySelector("#join").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const inp = document.getElementById("username");
-  console.log("emitting:", inp.value);
-  socket.emit("join", inp.value);
+const joinForm = document.querySelector("#join");
+const writeMsg = document.querySelector("#msg-input");
+const leaveBtn = document.querySelector("#leaveBtn");
+const roomNumber = document.querySelector("#roomNumber");
+const messages = document.getElementById("messages");
 
+joinForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const username = document.getElementById("username");
+  const room = document.querySelector('input[name="room"]:checked').value;
+  socket.emit("join", username.value, room);
+  username.value = "";
+  joinForm.style.display = "none";
+  writeMsg.style.display = "block";
+  leaveBtn.style.display = "block";
+  roomNumber.style.display = "block";
+  roomNumber.innerHTML = "Olet huoneessa " + room;
+});
+
+leaveBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  socket.emit("leave");
+  joinForm.style.display = "block";
+  writeMsg.style.display = "none";
+  leaveBtn.style.display = "none";
+  roomNumber.style.display = "none";
+  messages.innerHTML = "";
+});
+
+writeMsg.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const inp = document.getElementById("message");
+  console.log("emitting", inp.value);
+  socket.emit("write message", inp.value);
   inp.value = "";
 });
 
-socket.on("chat message", (msg) => {
+socket.on("new message", (msg, username) => {
   const item = document.createElement("li");
-  item.classList.add(
-    "py-2",
-    "px-3",
-    "bg-mm-medium-carmine",
-    "rounded-lg",
-    "text-white",
-    "w-fit",
-    "m-5"
-  );
-  item.innerHTML = msg;
-  document.getElementById("messages").appendChild(item);
+  item.innerHTML = username + ": " + msg;
+  messages.appendChild(item);
 });
+
 socket.on("response", (msg) => {
+  console.log(msg);
+});
+
+socket.on("leaveResponse", (msg) => {
   console.log(msg);
 });
